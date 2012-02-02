@@ -1,6 +1,6 @@
-===============
-django-intercom
-===============
+==================
+django-like-button
+==================
 
 django-like-button makes it easy to use a facebook like button in your django application. You just need to do the following.
 
@@ -24,13 +24,17 @@ Installation
     in settings.py::
 
         FACEBOOK_APP_ID = "your appID"
+        FACEBOOK_SHOW_SEND = "true" or "false, default is "true"
+        FACEBOOK_LIKE_WIDTH = "numeric value for width", default is true
+        FACEBOOK_SHOW_FACES = "true" or "false, default is "true"
+        FACEBOOK_FONT = "font", default is "arial"
 
 4. Add the template tag code into your base template before the body tag.
 
-    At the top of the page put this::
+    Where you need the like button::
 
     {% load like_button %}
 
-    At the bottom of the page before the </body> tag put this::
+    At the bottom of the page before the </body> tag put this (you only need to do this once)::
 
-    {% like_button_tag %}
+    {% like_button_js_tag %}
