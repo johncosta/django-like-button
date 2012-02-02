@@ -98,16 +98,16 @@ def find_package_data(
     return out
 
 README = read('README.rst')
-PACKAGE = "intercom"
+PACKAGE = "like_button"
 VERSION = __import__(PACKAGE).__version__
 
 setup(
-    name='django-intercom',
+    name='django-like-button',
     version=VERSION,
-    description='Django App for integrating with intercom.io',
-    maintainer='Ken Cochrane',
-    maintainer_email='KenCochrane@gmail.com',
-    url='https://github.com/kencochrane/django-intercom/',
+    description='Django App for adding a Facebook like button',
+    maintainer='John Costa',
+    maintainer_email='john.costa@gmil.com',
+    url='https://github.com/johncosta/django-like-button',
     classifiers=[
         'Programming Language :: Python',
         'Framework :: Django',
