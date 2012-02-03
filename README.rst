@@ -24,10 +24,10 @@ Installation
     in settings.py::
 
         FACEBOOK_APP_ID = "your appID"
-        FACEBOOK_SHOW_SEND = "true" or "false, default is "true"
-        FACEBOOK_LIKE_WIDTH = "numeric value for width", default is 450
-        FACEBOOK_SHOW_FACES = "true" or "false, default is "true"
-        FACEBOOK_FONT = "font", default is "arial"
+        FACEBOOK_SHOW_SEND = "true"   # or "false, default is "true"
+        FACEBOOK_LIKE_WIDTH = "450"   # "numeric value for width", default is 450
+        FACEBOOK_SHOW_FACES = "true"  # or "false, default is "true"
+        FACEBOOK_FONT = "font"        # default is "arial"
 
 4. Add the template tag code into your base template before the body tag.
 
