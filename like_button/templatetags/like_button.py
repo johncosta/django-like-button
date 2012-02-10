@@ -34,18 +34,18 @@ def like_button_js_tag(context):
         install the javascript since it isn't needed.
 
     """
-    request = context['request']
-
     if FACEBOOK_APP_ID is None:
         log.warning("FACEBOOK_APP_ID isn't setup correctly in your settings")
 
     # make sure FACEBOOK_APP_ID is setup correct and user is authenticated
     if FACEBOOK_APP_ID:
 
-        return {"LIKE_BUTTON_IS_VALID" : True,
-                "facebook_app_id":FACEBOOK_APP_ID,
-                "channel_base_url": request.get_host(),
-                }
+        request = context['request']
+        if request:
+            return {"LIKE_BUTTON_IS_VALID" : True,
+                    "facebook_app_id":FACEBOOK_APP_ID,
+                    "channel_base_url": request.get_host(),
+                    }
 
     # if it is here, it isn't a valid setup, return False to not show the tag.
     return {"LIKE_BUTTON_IS_VALID" : False}
@@ -67,20 +67,22 @@ s
     # make sure INTERCOM_APPID is setup correct and user is authenticated
     if FACEBOOK_APP_ID:
 
-        request = context['request']
-        path_to_like = request.get_host() + request.get_full_path()
-        show_send = true_false_converter(FACEBOOK_SHOW_SEND)
-        like_width = FACEBOOK_LIKE_WIDTH
-        show_faces = true_false_converter(FACEBOOK_SHOW_FACES)
-        font = FACEBOOK_FONT
+        request = context.get('request', None)
+        if request:
+            path_to_like = request.get_host() + request.get_full_path()
 
-        return {"LIKE_BUTTON_IS_VALID" : True,
-                "path_to_like": path_to_like,
-                "show_send": show_send,
-                "like_width": like_width,
-                "show_faces": show_faces,
-                "font": font,
-        }
+            show_send = true_false_converter(FACEBOOK_SHOW_SEND)
+            like_width = FACEBOOK_LIKE_WIDTH
+            show_faces = true_false_converter(FACEBOOK_SHOW_FACES)
+            font = FACEBOOK_FONT
+
+            return {"LIKE_BUTTON_IS_VALID" : True,
+                    "path_to_like": path_to_like,
+                    "show_send": show_send,
+                    "like_width": like_width,
+                    "show_faces": show_faces,
+                    "font": font,
+            }
 
     # if it is here, it isn't a valid setup, return False to not show the tag.
     return {"LIKE_BUTTON_IS_VALID" : False}
