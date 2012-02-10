@@ -40,7 +40,7 @@ def like_button_js_tag(context):
     # make sure FACEBOOK_APP_ID is setup correct and user is authenticated
     if FACEBOOK_APP_ID:
 
-        request = context['request']
+        request = context.get('request', None)
         if request:
             return {"LIKE_BUTTON_IS_VALID" : True,
                     "facebook_app_id":FACEBOOK_APP_ID,
