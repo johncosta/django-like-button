@@ -38,3 +38,10 @@ Installation
     At the bottom of the page before the </body> tag put this (you only need to do this once)::
 
     {% like_button_js_tag %}
+
+5. Add the url into your urls file.  This tries to address the issue identified
+with facebooks like button here: http://stackoverflow.com/questions/2955012/facebook-javascript-sdk-fb-xd-fragment
+
+    in urls.py::
+
+        url(r'', include('like_button.urls')),
