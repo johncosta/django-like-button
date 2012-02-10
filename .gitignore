@@ -4,3 +4,7 @@
 _templates
 _static
 _build
+build
+dist
+*.egg-info
+*.egg

@@ -24,8 +24,8 @@ def my_import(name):
 def true_false_converter(value):
     return 'true' if value else 'false'
 
-@register.inclusion_tag('like_button/like_button_js_tag.html', takes_context=False)
-def like_button_js_tag():
+@register.inclusion_tag('like_button/like_button_js_tag.html', takes_context=True)
+def like_button_js_tag(context):
     """ This tag will check to see if they have the FACEBOOK_LIKE_APP_ID setup
         correctly in the django settings, if so then it will pass the data along
         to the intercom_tag template to be displayed.
@@ -34,6 +34,7 @@ def like_button_js_tag():
         install the javascript since it isn't needed.
 
     """
+    request = context['request']
 
     if FACEBOOK_APP_ID is None:
         log.warning("FACEBOOK_APP_ID isn't setup correctly in your settings")
@@ -43,6 +44,7 @@ def like_button_js_tag():
 
         return {"LIKE_BUTTON_IS_VALID" : True,
                 "facebook_app_id":FACEBOOK_APP_ID,
+                "channel_base_url": request.get_host(),
                 }
 
     # if it is here, it isn't a valid setup, return False to not show the tag.
