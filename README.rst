@@ -31,9 +31,13 @@ Installation
 
 4. Add the template tag code into your base template before the body tag.
 
+    In the template, in which you want to add button load tags:
+    
+    {% load like_button %}
+
     Where you need the like button::
 
-    {% load like_button %}
+    {% like_button_tag %}
 
     At the bottom of the page before the </body> tag put this (you only need to do this once)::
 
