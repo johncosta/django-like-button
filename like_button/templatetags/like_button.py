@@ -71,8 +71,6 @@ s
         request = context.get('request', None)
         if request:
             path_to_like = "http://" + request.get_host() + request.get_full_path()
-            if settings.DEBUG:
-                path_to_like = "http://www.iminart.net/"
 
             show_send = true_false_converter(FACEBOOK_SHOW_SEND)
             like_width = FACEBOOK_LIKE_WIDTH
