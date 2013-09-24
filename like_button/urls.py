@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
-    url(r'^channel.html$', direct_to_template, {'template': 'channel.html'}),
+    url(r'^channel.html$', TemplateView.as_view(), {'template': 'channel.html'}),
 )
