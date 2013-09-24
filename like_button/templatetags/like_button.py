@@ -13,6 +13,7 @@ FACEBOOK_SHOW_SEND = getattr(settings, 'FACEBOOK_SHOW_SEND', True)
 FACEBOOK_LIKE_WIDTH = getattr(settings, 'FACEBOOK_LIKE_WIDTH', '450')
 FACEBOOK_SHOW_FACES = getattr(settings, 'FACEBOOK_SHOW_FACES', True)
 FACEBOOK_FONT = getattr(settings, 'FACEBOOK_FONT', 'arial')
+FACEBOOK_LIKE_LAYOUT = getattr(settings, 'FACEBOOK_LIKE_LAYOUT', 'button_count')
 
 def my_import(name):
     """ dynamic importing """
@@ -69,7 +70,9 @@ s
 
         request = context.get('request', None)
         if request:
-            path_to_like = request.get_host() + request.get_full_path()
+            path_to_like = "http://" + request.get_host() + request.get_full_path()
+            if settings.DEBUG:
+                path_to_like = "http://www.iminart.net/"
 
             show_send = true_false_converter(FACEBOOK_SHOW_SEND)
             like_width = FACEBOOK_LIKE_WIDTH
@@ -82,6 +85,7 @@ s
                     "like_width": like_width,
                     "show_faces": show_faces,
                     "font": font,
+                    "like_layout": FACEBOOK_LIKE_LAYOUT
             }
 
     # if it is here, it isn't a valid setup, return False to not show the tag.
