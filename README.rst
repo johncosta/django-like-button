@@ -4,6 +4,11 @@ django-like-button
 
 django-like-button makes it easy to use a facebook like button in your django application. You just need to do the following.
 
+Documentation
+=============
+
+Documentation can now be found in ReadTheDocs here: https://readthedocs.org/projects/django-like-button/
+
 Installation
 ============
 1. Install django-like-button using easy_setup or pip::
