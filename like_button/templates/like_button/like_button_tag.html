@@ -1,5 +1,6 @@
 {% if LIKE_BUTTON_IS_VALID %}
-<div class="fb-like" data-href="{{ path_to_like }}" data-send="{{ show_send }}" data-width="{{ like_width }}" data-show-faces="{{ show_faces }}" data-font="{{ font }}"></div>
+<div class="fb-like" data-href="{{ path_to_like }}" data-send="{{ show_send }}" data-width="{{ like_width }}" data-show-faces="{{ show_faces }}" 
+		data-layout="{{ like_layout }}" ></div>
 {% else %}
 <!-- Skipping like-button for this request -->
 {% endif %}
