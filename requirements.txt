@@ -1,2 +1,2 @@
 # documentation
-Sphinx==1.2b2
+Sphinx==4.0.2
